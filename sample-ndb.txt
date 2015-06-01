@@ -1,41 +1,32 @@
 import os
 
 from goo.appengine.ext import webapp
-from goo.appengine.ext.webapp import template
-from goo.appengine.ext.webapp.util import run_wsgi_app
-from goo.appengine.ext import ndb
+from goo.appengine.ext import db
 
-class Person(ndb.Model):
-    first_name = ndb.StringProperty()
-    last_name = ndb.StringProperty()
-    age = ndb.IntegerProperty()
-    
+class Person(db.Model):
+    first_name = db.StringProperty()
+    last_name = db.StringProperty()
+    age = db.IntegerProperty()
+
 class MainPage(webapp.RequestHandler):
-     
-    def get(self):    
+
+    def get(self):
         people = Person.query()
-        template_values = {
-            'people' : people
-        }
+        template_values = { 'people' : people }
         template_path = os.path.join(
-            os.path.dirname(__file__), 
-            'helloworld.html')
-        self.response.out.write(template.render(
-            template_path, template_values))
-        
+                os.path.dirname(__file__),
+                'helloworld.html')
+        self.response.out.write( template.render( template_path, template_values))
+
     def post(self):
-        
-        p = Person(
-            first_name = self.request.get("fname"),
-            last_name = self.request.get("lname"),
-            age = int(self.request.get("age")))
+        p = Person( first_name = self.request.get("fname"), last_name = self.request.get("lname"),
+                age = int(self.request.get("age")))
         p.put()
-        
+
         self.redirect("/")
-        
-        
-application = webapp.WSGIApplication([('/', MainPage)],
-	 debug=True)
+
+
+application = webapp.WSGIApplication([('/', MainPage)], debug=True)
 
 def main():
     run_wsgi_app(application)

@@ -1,9 +1,9 @@
 import os
 
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp import template
-from google.appengine.ext.webapp.util import run_wsgi_app
-from google.appengine.ext import ndb
+from goo.appengine.ext import webapp
+from goo.appengine.ext.webapp import template
+from goo.appengine.ext.webapp.util import run_wsgi_app
+from goo.appengine.ext import ndb
 
 class Person(ndb.Model):
     first_name = ndb.StringProperty()

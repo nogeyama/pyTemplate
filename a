@@ -1,0 +1,11 @@
+<type 'unicode'> row=unicode
+<type 'unicode'> rowJunicode=unicode
+追加プログラム内文字列1--data-inp-sjis.txt
+
+<type 'str'> rowJstr=str
+<type 'unicode'> row=unicode
+<type 'unicode'> rowJunicode=unicode
+追加プログラム内文字列1--福島市教育委員会に推薦依頼の文書を提出しました。
+
+<type 'str'> rowJstr=str
+追加プログラム内文字列3

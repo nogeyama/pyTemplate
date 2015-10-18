@@ -1,5 +1,6 @@
 # coding: utf-8
 #
+# python34
 # pythonでのコマンドライン引数の処理
 # argparseが推奨
 # optparseは非推奨
@@ -19,7 +20,7 @@ if __name__ == '__main__':
 
       args = parser.parse_args()
 
-      print args.var_bbb, type(args.var_bbb)    # True or False, <type 'bool'>
-      print args.var_aaa, type(args.var_aaa)    # 文字列 or None, <type 'str'>
-      print args.var_ccc, type(args.var_ccc)    # 数値 or None, <type 'int'> # 数値が大きいと自動で'long'になった。
-      print args.var_else, type(args.var_else)  # 必須, <type 'str'>
+      print( args.var_bbb, type(args.var_bbb))    # True or False, <type 'bool'>
+      print( args.var_aaa, type(args.var_aaa))    # 文字列 or None, <type 'str'>
+      print( args.var_ccc, type(args.var_ccc))    # 数値 or None, <type 'int'> # 数値が大きいと自動で'long'になった。
+      print( args.var_else, type(args.var_else))  # 必須, <type 'str'>
